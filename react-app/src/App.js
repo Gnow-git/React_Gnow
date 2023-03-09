@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Header(){
+function Header(props){
+  console.log('props', props, props.title);  // 로그 찍기
   return  <header>
-  <h1><a href="/">WEB</a></h1>
+  <h1><a href="/">{props.title}</a></h1>
 </header>
 }
 
@@ -17,18 +18,18 @@ function Nav(){
 </nav>
 }
 
-function Article() {
+function Article(props) {
   return <article>
-  <h2>Welcome</h2>
-  Hello, WEB
+  <h2>{props.title}</h2>
+  {props.body}
 </article>
 }
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Header title="WEB"></Header>
       <Nav></Nav>
-      <Article></Article>
+      <Article title="welcome" body="Hello, WEB"></Article>
     </div>
   );
 }
